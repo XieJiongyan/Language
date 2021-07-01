@@ -4,7 +4,6 @@
 
 #include <fstream>
 using namespace ::std;
-void Sentence::print_test() { std::cout << "test sentence" << std::endl; }
 
 void Sentence::input_file(std::string filename) {
   cout << "opening " << filename << endl;
