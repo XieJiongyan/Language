@@ -1,4 +1,6 @@
 #include <iostream>
+
+#include "cpplab/sentence.h"
 using namespace ::std;
 
 int main() {
@@ -8,5 +10,7 @@ int main() {
     c = cin.get();
     cout << i << ": " << c << endl;
   }
+  Sentence sentence;
+  sentence.print_test();
   return 0;
 }

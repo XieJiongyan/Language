@@ -7,7 +7,8 @@
 			"command": "/usr/local/bin/g++-11",
 			"args": [
 				"-g",
-				"${workspaceFolder}/main.cc",
+				"${workspaceFolder}/*.cc",
+				"${workspaceFolder}/cpplab/*.cc",
 				"-o",
 				"${workspaceFolder}/main.o"
 			],
