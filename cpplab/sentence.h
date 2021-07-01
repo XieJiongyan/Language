@@ -13,6 +13,7 @@ class Sentence_level {
   string label() const;
   void add_level();
   void rmv_level();
+  void add_line();
 
  private:
   vector<int> _levels;

@@ -1,2 +1,6 @@
-object test {}
+object test 
 object test1 :test 
+for {
+	test = test
+}
+thx

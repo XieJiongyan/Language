@@ -23,13 +23,22 @@ void Compiler::input_file(std::string filename) {
   string s;
   while (fin.get(c)) {
     if (c == '\n') {
+      sentences.emplace_back(Sentence{s, sentence_level});
       switch (*s.rbegin()) {
         case '(':
         case '[':
         case '{':
+          sentence_level.add_level();
           break;
+        case ')':
+        case ']':
+        case '}':
+          sentence_level.rmv_level();
+          sentence_level.add_line();
+          break;
+        default:
+          sentence_level.add_line();
       }
-      sentences.emplace_back(Sentence{s, sentence_level});
       s = "";
     } else
       s += c;
