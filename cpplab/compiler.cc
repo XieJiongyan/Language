@@ -1,12 +1,12 @@
-#ifndef __sentence_cc__
-#define __sentence_cc__
-#include "sentence.h"
+#ifndef __compiler_cc__
+#define __compiler_cc__
+#include "compiler.h"
 
 #include <fstream>
 using namespace ::std;
-void Sentence::print_test() { std::cout << "test sentence" << std::endl; }
+void Compiler::print_test() { std::cout << "test Compiler" << std::endl; }
 
-void Sentence::input_file(std::string filename) {
+void Compiler::input_file(std::string filename) {
   cout << "opening " << filename << endl;
   ifstream fin(filename);
   if (!fin) cout << "open wrong" << endl;

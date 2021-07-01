@@ -1,16 +1,15 @@
 #include <iostream>
+#include <string>
 
-#include "cpplab/sentence.h"
+#include "cpplab/compiler.h"
 using namespace ::std;
 
 int main() {
   cout << "Welcome to language" << endl;
-  char c{' '};
-  for (int i(0); i < 10; i++) {
-    c = cin.get();
-    cout << i << ": " << c << endl;
-  }
-  Sentence sentence;
-  sentence.print_test();
+  string filename;
+  cin >> filename;
+  if (filename == "1") filename = "example/example1.txt";
+  Compiler compiler;
+  compiler.input_file(filename);
   return 0;
 }

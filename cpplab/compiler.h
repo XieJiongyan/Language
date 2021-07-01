@@ -1,9 +1,9 @@
-#ifndef __sentence_h__
-#define __sentence_h__
+#ifndef __compiler_h__
+#define __compiler_h__
 #include <iostream>
 #include <string>
 
-class Sentence {
+class Compiler {
  public:
   void print_test();
   void input_file(std::string filename);
