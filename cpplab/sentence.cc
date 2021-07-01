@@ -5,5 +5,18 @@
 #include <fstream>
 using namespace ::std;
 
-void Sentence::analysis() { cout << "- " << _content << endl; }
+void Sentence::analysis() const {
+  cout << _sentence_level.label() << "- " << _content << endl;
+}
+
+void Sentence_level::add_level() { _levels.emplace_back(0); }
+
+void Sentence_level::rmv_level() { _levels.pop_back(); }
+
+string Sentence_level::label() const {
+  string rev;
+  for (auto value : _levels) rev += to_string(value) + ".";
+  if (!rev.empty()) rev.pop_back();
+  return rev;
+}
 #endif

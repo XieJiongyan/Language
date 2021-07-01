@@ -18,16 +18,23 @@ void Compiler::input_file(std::string filename) {
   }
 
   vector<Sentence> sentences;
+  Sentence_level sentence_level;
   char c;
   string s;
   while (fin.get(c)) {
     if (c == '\n') {
-      sentences.emplace_back(Sentence{s});
+      switch (*s.rbegin()) {
+        case '(':
+        case '[':
+        case '{':
+          break;
+      }
+      sentences.emplace_back(Sentence{s, sentence_level});
       s = "";
     } else
       s += c;
   }
-  if (s != "") sentences.emplace_back(Sentence{s});
+  if (s != "") sentences.emplace_back(Sentence{s, sentence_level});
   for (auto sentence : sentences) sentence.analysis();
 }
 #endif
