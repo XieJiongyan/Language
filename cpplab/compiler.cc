@@ -19,9 +19,15 @@ void Compiler::input_file(std::string filename) {
 
   vector<Sentence> sentences;
   char c;
-
+  string s;
   while (fin.get(c)) {
-    cout << "-" << c << endl;
+    if (c == '\n') {
+      sentences.emplace_back(Sentence{s});
+      s = "";
+    } else
+      s += c;
   }
+  if (s != "") sentences.emplace_back(Sentence{s});
+  for (auto sentence : sentences) sentence.analysis();
 }
 #endif

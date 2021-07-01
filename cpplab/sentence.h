@@ -7,9 +7,10 @@ using namespace ::std;
 
 class Sentence {
  public:
-  void input_file(std::string filename);
+  Sentence(string content) : _content(content) {}
+  void analysis();
 
  private:
-  vector<int> level;
+  string _content;
 };
 #endif
