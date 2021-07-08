@@ -17,6 +17,7 @@ class Sentence_level {
 
  private:
   vector<int> _levels;
+  const vector<char> _neglect_chars{' ', '\t', '\n'};
 };
 
 class Sentence {

@@ -7,6 +7,8 @@ using namespace ::std;
 
 void Sentence::analysis() const {
   cout << _sentence_level.label() << "- " << _content << endl;
+  vector<string> words;
+  
 }
 
 void Sentence_level::add_level() { _levels.emplace_back(0); }
