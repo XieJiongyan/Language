@@ -55,6 +55,16 @@ int main()
     test(!wordspace.add_word("big_bang"));
 
     test(wordspace.has_word("big_bang"));
+
+    test(wordspace.add_word("big"));
+
+    test(wordspace.has_word("big"));
+
+    test(wordspace.add_word("bigfat"));
+
+    test(wordspace.has_word("bigfat"));
+
+    test(!wordspace.has_word("bi"));
   }
   testpart("STOP TEST");
 

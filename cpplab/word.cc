@@ -12,11 +12,15 @@
 bool Wordspace::add_word(string word)
 {
     unsigned iw{0};
-    for (auto i(word.begin()); i < word.end(); i++) {
+    for (auto i(word.begin()); i < word.end(); i++)
+    {
         int iwn{find_next_node(iw, *i)};
-        if (iwn) {
+        if (iwn)
+        {
             iw = iwn;
-        } else {
+        }
+        else
+        {
             _nodes.emplace_back(Word_node{*i});
             _edges.emplace_back(Word_edge{_nodes.size() - 1, _nodes[iw]._edge});
             _nodes[iw]._edge = _edges.size() - 1;
@@ -24,7 +28,8 @@ bool Wordspace::add_word(string word)
         }
     }
     bool rev{false};
-    if (!_nodes[iw]._is_end) {
+    if (!_nodes[iw]._is_end)
+    {
         _nodes[iw]._is_end = true;
         rev = true;
     }
@@ -38,10 +43,12 @@ bool Wordspace::add_word(string word)
  * @param __c 判断的字符
  * @return int 若为0, 则表示未找到, 否则为下一节点位置
  */
-int Wordspace::find_next_node(int in, char __c) {
+int Wordspace::find_next_node(int in, char __c)
+{
     int rev{0};
-    for (int ie(_nodes[in]._edge); ie != 0; ie = _edges[ie]._next) {
-        if (_nodes[_edges[ie]._to]._c == __c) 
+    for (int ie(_nodes[in]._edge); ie != 0; ie = _edges[ie]._next)
+    {
+        if (_nodes[_edges[ie]._to]._c == __c)
             rev = _edges[ie]._to;
     }
     return rev;
@@ -54,12 +61,17 @@ int Wordspace::find_next_node(int in, char __c) {
  * @return true 
  * @return false 
  */
-bool Wordspace::has_word(string word) {
+bool Wordspace::has_word(string word)
+{
     unsigned iw{0};
-    for (auto i(word.begin()); i < word.end(); i++) {
+    for (auto i(word.begin()); i < word.end(); i++)
+    {
         iw = find_next_node(iw, *i);
-        if (!iw) return false;
+        if (!iw)
+            return false;
     }
-    return true;
+    if (_nodes[iw]._is_end)
+        return true;
+    return false;
 }
 #endif
