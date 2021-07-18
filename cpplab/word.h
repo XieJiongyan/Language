@@ -6,6 +6,8 @@ using namespace ::std;
 
 class Word_node
 {
+    public:
+    friend class Wordspace;
 private:
     char _c;
     int _edge;
@@ -16,11 +18,13 @@ public:
 
 class Word_edge
 {
-    int _node;
+    friend class Wordspace;
+    unsigned long _to;
     int _next;
 
 public:
-    Word_edge() : _node{-1}, _next{0} {}
+    Word_edge() : _to{0}, _next{0} {}
+    Word_edge(unsigned long __to, int __next) : _to(__to), _next(__next) {}
 };
 
 class Word
@@ -34,18 +38,14 @@ private:
     vector<Word_node> _nodes;
     vector<Word_edge> _edges;
 
-    void add_word_node(char __c);
-
+    // void add_word_node(char __c);
+    int find_next_node(int in, char __c);
 public:
     Wordspace() : _nodes{vector<Word_node>{Word_node{' '}}},
                   _edges{vector<Word_edge>{Word_edge{}}} {}
 
-    /**
-     * @brief 分析一句话
-     * @usage wordspace.analysis(sentence._content);
-     * @detail 期待实现分割, 加词, 给出词类型, 返回所有词的的功能
-     * @param __sentence_content a sentence of string
-     */
-    vector<Word> analysis(string __sentence_content);
+    bool add_word(string word); 
+
+    bool has_word(string word);
 };
 #endif
