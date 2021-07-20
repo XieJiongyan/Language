@@ -1,0 +1,5 @@
+object connection::Exchangeable(object o1, object o2){
+  object o1, o2
+  object Exchangeable(o1, o2)
+}
+o1 Exchangeable o2 => o2 Exchangeable o1 $1

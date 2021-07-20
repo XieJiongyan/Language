@@ -101,8 +101,8 @@ string Sentence_level::label() const {
 void Sentence::add_keywords() {
   _wordspaces.emplace_back(Wordspace{".", ",", "/", ":", ";", "\'", "\""
   "[", "]", "{", "}", "```", "~", "!", "@", "#", "$", "%", "^", "*", "(", 
-  ")", "-", "+", "=", "|", "\\", "=="});
+  ")", "-", "+", "=", "|", "\\", "==", "=>", "<=>", "//", "/*", "*/", "::"});
   _wordspaces.emplace_back(Wordspace{"object", "int", "bool", "is", "in", 
-  "belongs_to", "equal", "has"});
+  "belongs_to", "equal", "has", "connection", "for", "if"});
 }
 #endif

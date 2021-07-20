@@ -66,6 +66,12 @@ int main()
 
     test(!wordspace.has_word("bi"));
   }
+  testpart("Checking example/example2.txt");
+  {
+    Compiler compiler;
+    compiler.input_file("example/example2.txt");
+    test(true);
+  }
   testpart("STOP TEST");
 
   return 0;

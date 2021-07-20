@@ -17,3 +17,7 @@ J.2.7=1
 J.2.8=1 
 } succeeded(9/9). Pass test J.2.
 
+>> Start Test J.2 Checking example/example2.txt {
+J.3.0=1 
+} succeeded(1/1). Pass test J.3.
+
