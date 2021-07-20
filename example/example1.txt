@@ -1,5 +1,5 @@
-object test 
-object test1 :test 
+object test0 
+object test1 :test0
 for {
 	test = test
 }
