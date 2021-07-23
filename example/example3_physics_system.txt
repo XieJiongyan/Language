@@ -1,0 +1,43 @@
+
+object Physics_environment {
+  int dimension
+}
+object point_base {
+  set<Force> _forces
+}
+object point_mass : point_base {
+  double _m
+}
+
+//建立力的基础
+object Force {
+  array<Point, 2> _points
+}
+
+Point._forces has Force <=> Force._points has Point $connection_1
+
+//建立力的值 在这里已经可能出现问题了, 就是一个二维物体受到了三维的力, 
+//这种情况貌似没法解决, 只能手动避免
+object Force_dim : Force, Physics_environment {
+  vector<int> _f(_size = dimension)
+}
+
+object Point_dim : point_base, Physics_environment{
+  vector<int> _x(_size = dimension)
+  vector<int> _v(_size = dimension)
+  vector<int> _a(_size = dimension)
+
+  vector<int> _force(_size = dimension)
+
+  vector<int> get_force```
+    vector<int> f(_size = dimension)
+    for (Force force : _forces)
+      for (int i(0); i < dimension; i++) 
+        f[i] += force[i];
+    _force = f;
+  ```
+}
+
+object Point : Point_dim, point_mass {
+  _force equals_to _m * _a $Newton_second_law
+}

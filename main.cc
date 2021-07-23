@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <map> 
 
 #include "cpplab/compiler.h"
 #include "cpplab/word.h"
