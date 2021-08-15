@@ -2,6 +2,7 @@ internal class
 internal connection
 internal event
 
+
 class object{
   addable<object> _member
   addable<connection> _connection
