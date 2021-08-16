@@ -1,0 +1,8 @@
+any{set, array} set_type
+
+object copies{
+  object _obj
+  set_type _set_type
+}
+
+copies() of `object __o` 
